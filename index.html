@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Control de Gastos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+  <div class="container">
+ 
+    <h1>
+      <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+      Control de Gastos
+    </h1>
+ 
+    <div class="balance">
+      <h2>Balance Total</h2>
+      <p id="balance" class="neutro">$0</p>
+    </div>
+ 
+    <div class="stats-row">
+      <div class="stat-box ing">
+        <span class="stat-label">&#8679; Ingresos</span>
+        <span class="stat-val" id="totalIngresos">$0</span>
+      </div>
+      <div class="stat-box gas">
+        <span class="stat-label">&#8681; Gastos</span>
+        <span class="stat-val" id="totalGastos">$0</span>
+      </div>
+    </div>
+ 
+    <div class="formulario">
+      <input type="text" id="descripcion" placeholder="Descripción del movimiento">
+      <input type="number" id="monto" placeholder="Monto ($)" min="0">
+      <select id="tipo">
+        <option value="ingreso">Ingreso</option>
+        <option value="gasto">Gasto</option>
+      </select>
+      <div class="btn-row">
+        <button onclick="agregarMovimiento()" class="btn-agregar">+ Agregar</button>
+        <button onclick="limpiarHistorial()" class="btn-limpiar">&#128465; Limpiar</button>
+      </div>
+    </div>
+ 
+    <div id="toast" class="toast"></div>
+ 
+    <div class="lista">
+      <h2>Movimientos</h2>
+      <ul id="listaMovimientos">
+        <li class="empty-state">Sin movimientos aún</li>
+      </ul>
+    </div>
+ 
+    <div class="grafico">
+      <h2>Resumen</h2>
+      <canvas id="miGrafico"></canvas>
+    </div>
+ 
+  </div>
+ 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+ 
+</body>
+</html>
